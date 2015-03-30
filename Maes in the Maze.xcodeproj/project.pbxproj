@@ -13,6 +13,7 @@
 		3F985E071AC9BF5B007F671A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F985E061AC9BF5B007F671A /* Images.xcassets */; };
 		3F985E0A1AC9BF5B007F671A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F985E081AC9BF5B007F671A /* LaunchScreen.xib */; };
 		3F985E161AC9BF5B007F671A /* Maes_in_the_MazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F985E151AC9BF5B007F671A /* Maes_in_the_MazeTests.m */; };
+		3F985E211AC9C2CB007F671A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F985E201AC9C2CB007F671A /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		3F985E0F1AC9BF5B007F671A /* Maes in the MazeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maes in the MazeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F985E141AC9BF5B007F671A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F985E151AC9BF5B007F671A /* Maes_in_the_MazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Maes_in_the_MazeTests.m; sourceTree = "<group>"; };
+		3F985E1F1AC9C2CB007F671A /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
+		3F985E201AC9C2CB007F671A /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = ../Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 		3F985DF81AC9BF5A007F671A /* Maes in the Maze */ = {
 			isa = PBXGroup;
 			children = (
+				3F985E1F1AC9C2CB007F671A /* Model.h */,
+				3F985E201AC9C2CB007F671A /* Model.m */,
 				3F985DFD1AC9BF5B007F671A /* AppDelegate.h */,
 				3F985DFE1AC9BF5B007F671A /* AppDelegate.m */,
 				3F985E001AC9BF5B007F671A /* ViewController.h */,
@@ -218,6 +223,7 @@
 				3F985E021AC9BF5B007F671A /* ViewController.m in Sources */,
 				3F985DFF1AC9BF5B007F671A /* AppDelegate.m in Sources */,
 				3F985DFC1AC9BF5B007F671A /* main.m in Sources */,
+				3F985E211AC9C2CB007F671A /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
