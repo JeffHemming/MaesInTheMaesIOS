@@ -21,6 +21,11 @@
         instance = [[self alloc] init];
         
         instance.maxLevel = 1;
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"maxLevelReached"])
+        {
+            instance.maxLevel =[[NSUserDefaults standardUserDefaults] integerForKey:@"maxLevelReached"];
+        }
+        else [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"maxLevelReached"];
         instance.currentLevel = 1;
     });
     
