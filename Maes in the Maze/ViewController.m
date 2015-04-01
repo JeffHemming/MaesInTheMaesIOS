@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Model.h"
+#import "LevelSelectViewController.h"
 
 @interface ViewController ()
 
@@ -119,6 +120,8 @@
 -(void)pushSelectLevel
 {
     //code to push the Select Level view
+    LevelSelectViewController *selectLevelView = [[LevelSelectViewController alloc] init];
+    [self.navigationController pushViewController:selectLevelView animated:YES];
 }
 
 -(void)pushInstructions
