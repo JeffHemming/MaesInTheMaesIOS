@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Model.h"
 #import "LevelSelectViewController.h"
+#import "LevelViewController.h"
 
 @interface ViewController ()
 
@@ -59,7 +60,7 @@
                                                                         views:@{@"NG" : newGame}]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-                               @"V:|-200-[MMT]-300-[NG]-20-[SL]-20-[I]"
+                               @"V:|-400-[MMT]-300-[NG]-20-[SL]-20-[I]"
                                                                       options:kNilOptions
                                                                       metrics:nil
                                                                         views:@{@"MMT" : mMTitle,
@@ -114,6 +115,8 @@
 -(void)startNewGame
 {
     [Model sharedInstance].currentLevel=1;
+    LevelViewController *levelView = [[LevelViewController alloc] init];
+    [self.navigationController pushViewController:levelView animated:YES];
     //code for a new level, level 1;
 }
 

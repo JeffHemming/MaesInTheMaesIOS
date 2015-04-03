@@ -8,6 +8,7 @@
 
 #import "LevelSelectViewController.h"
 #import "Model.h"
+#import "LevelViewController.h"
 
 @interface LevelSelectViewController ()
 
@@ -122,7 +123,7 @@
                                                                                 @"THREE" : nine}]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-                               @"V:|-160-[MMT]-200-[ONE]-80-[FOUR]-80-[SEVEN]"
+                               @"V:|-360-[MMT]-200-[ONE]-80-[FOUR]-80-[SEVEN]"
                                                                       options:kNilOptions
                                                                       metrics:nil
                                                                         views:@{@"MMT" : mMTitle,
@@ -295,7 +296,7 @@
                                                           attribute:NSLayoutAttributeBottom
                                                          multiplier:1.0
                                                            constant:0]];
-    
+    /*
     if([Model sharedInstance].maxLevel<9)nine.hidden=YES;
     else nine.hidden=NO;
     if([Model sharedInstance].maxLevel<8)eight.hidden=YES;
@@ -312,7 +313,7 @@
     else three.hidden=NO;
     if([Model sharedInstance].maxLevel<2)two.hidden=YES;
     else two.hidden=NO;
-    
+    */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -368,6 +369,8 @@
 -(void)startLevel
 {
     //code for pushing new level;
+    LevelViewController *levelView = [[LevelViewController alloc] init];
+    [self.navigationController pushViewController:levelView animated:YES];
 }
 
 @end
