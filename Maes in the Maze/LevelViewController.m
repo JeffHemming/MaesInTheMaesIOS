@@ -8,8 +8,10 @@
 
 #import "LevelViewController.h"
 #import "Model.h"
+#import "Maes.h"
 
 @interface LevelViewController ()
+@property (nonatomic, strong) Maes *maes;
 
 @end
 
@@ -21,7 +23,8 @@
     {
         self.view.backgroundColor = [UIColor blackColor];
         
-        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(50, 100, 200, 200)];
+        
+        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 700, 200, 200)];
         switch ([Model sharedInstance].currentLevel){
             case 1: levelTitle.text=@"Level 1 \nMaes sets out into the Maze...";
                 break;
@@ -45,6 +48,7 @@
         levelTitle.textColor=[UIColor whiteColor];
         levelTitle.userInteractionEnabled=NO;
         levelTitle.backgroundColor=[UIColor blackColor];
+        levelTitle.textAlignment=NSTextAlignmentCenter;
         [self.view addSubview:levelTitle];
         
     }
@@ -53,7 +57,6 @@
 
 -(void)goBack
 {
-    // to pop this view off manually, call "popViewControllerAnimated:" on your naviation contorller
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -71,21 +74,5 @@
     
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
--(NSString*)getLevelTitle
-{
-    NSString *levelTitleResult;
-    
-    
-    return levelTitleResult;
-}
 
 @end

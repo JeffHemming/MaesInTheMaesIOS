@@ -37,8 +37,7 @@
 @interface LevelObject : NSObject
 
 //@property NSInteger levelGrid [8][8];
-@property NSString *levelTitle;
-@property NSString *levelDescription;
+
 
 
 @end
