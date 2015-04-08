@@ -9,10 +9,17 @@
 #import "LevelViewController.h"
 #import "Model.h"
 #import "Maes.h"
+#import "Level.h"
 
 @interface LevelViewController ()
 @property (nonatomic, strong) Maes *maes;
+@property (nonatomic, strong) Level *lev;
 @property (nonatomic, strong) UILabel *maesLabel;
+@property (nonatomic, strong) UILabel *t1;
+@property (nonatomic, strong) UILabel *t2;
+@property (nonatomic, strong) UILabel *t3;
+@property (nonatomic, strong) UILabel *t4;
+@property (nonatomic, strong) UILabel *t5;
 @property (nonatomic, strong) NSMutableArray *turretList;
 @end
 
@@ -23,34 +30,36 @@
     if(self)
     {
         self.view.backgroundColor = [UIColor blackColor];
-        
-        
-        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 700, 200, 200)];
-        switch ([Model sharedInstance].currentLevel){
-            case 1: levelTitle.text=@"Level 1 \nMaes sets out into the Maze...";
-                break;
-            case 2:levelTitle.text=@"Level 2 \nNot too bad so far...";
-                break;
-            case 3:levelTitle.text=@"Level 3 \nMaes's big brother, Finn, is somewhere on this level...";
-                break;
-            case 4:levelTitle.text=@"Level 4 \nWith Finn safe, it's time to find Maes's sisters...";
-                break;
-            case 5:levelTitle.text=@"Level 5 \nThings are starting to get tricky...";
-                break;
-            case 6:levelTitle.text=@"Level 6 \nMaes's older sister, Nadia, is here, somewhere...";
-                break;
-            case 7:levelTitle.text=@"Level 7 \nTwo siblings down, one to go...";
-                break;
-            case 8:levelTitle.text=@"Level 8 \nDespite the danger, Maes knows he's getting close...";
-                break;
-            case 9:levelTitle.text=@"Level 9 \nMaes's baby sister, Gwendolyn, is here.  Almost done...";
-                break;
-        }
+        self.lev = [[Level alloc] initWithCurrent:[Model sharedInstance].currentLevel];
+        self.maes = [[Maes alloc] init];
+        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 860, 200, 160)];
+        levelTitle.text=self.lev.desc;
+
+        //Level Title and Description
         levelTitle.textColor=[UIColor whiteColor];
         levelTitle.userInteractionEnabled=NO;
         levelTitle.backgroundColor=[UIColor blackColor];
         levelTitle.textAlignment=NSTextAlignmentCenter;
         [self.view addSubview:levelTitle];
+        
+        //Border around Maze
+        UILabel *topBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 680, 20)];
+        topBorder.backgroundColor=[UIColor yellowColor];
+        [self.view addSubview:topBorder];
+        UILabel *bottomBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 840, 680, 20)];
+        bottomBorder.backgroundColor=[UIColor yellowColor];
+        [self.view addSubview:bottomBorder];
+        UILabel *leftBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 20, 680)];
+        leftBorder.backgroundColor=[UIColor yellowColor];
+        [self.view addSubview:leftBorder];
+        UILabel *rightBorder=[[UILabel alloc] initWithFrame:CGRectMake(700, 160, 20, 680)];
+        rightBorder.backgroundColor=[UIColor yellowColor];
+        [self.view addSubview:rightBorder];
+        
+        //Maes label
+        self.maesLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 180, 80, 80)];
+        self.maesLabel.backgroundColor=[UIColor greenColor];
+        [self.view addSubview:self.maesLabel];
         
     }
     return self;

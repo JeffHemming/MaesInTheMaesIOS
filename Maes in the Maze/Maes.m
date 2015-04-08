@@ -10,6 +10,11 @@
 
 @implementation Maes
 
+- (id)init {
+    self.x=0;
+    self.y=0;
+    return self;
+}
 @end
 
 
