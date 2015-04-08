@@ -21,4 +21,7 @@
 
 -(void) turn;
 -(id)initWithX:(NSInteger)ix andY:(NSInteger)iy andFace:(NSInteger)iface;
+-(NSInteger)getX;
+-(NSInteger)getY;
+-(NSInteger)getFace;
 @end

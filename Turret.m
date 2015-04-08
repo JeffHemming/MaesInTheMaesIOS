@@ -15,6 +15,15 @@
     if(self.face==4)self.face=1;
     else(self.face++);
 }
+-(NSInteger)getX{
+    return self.x;
+}
+-(NSInteger)getY{
+    return self.y;
+}
+-(NSInteger)getFace{
+    return self.face;
+}
 -(id)initWithX:(NSInteger)ix andY:(NSInteger)iy andFace:(NSInteger)iface{
     self=[super init];
     if(self){

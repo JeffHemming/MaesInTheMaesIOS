@@ -40,28 +40,38 @@
         self.rows =[[NSMutableArray alloc] initWithCapacity:8];
         switch (cL){
             case 1:
-                [self.rows insertObject: [NSArray arrayWithObjects: @".",@"w",@".",@".",@".",@".",@".",@".",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@".",@".",@".",@".",@".",nil] atIndex: 0];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"w",@".",@".",@".",nil] atIndex: 1];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 2];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 3];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@"w",@".",@".",@".",@".",nil] atIndex: 4];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 5];
-                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 6];
-                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@"w",nil] atIndex: 7];
-                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 8];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@"w",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 7];
                 break;
         }
         //Set turret list
         switch (cL){
             case 1:
-                self.t1=[[Turret alloc] initWithX:2 andY:7 andFace:1];
-                self.t1=[[Turret alloc] initWithX:3 andY:1 andFace:3];
-                self.t1=[[Turret alloc] initWithX:7 andY:4 andFace:4];
-                self.t1=[[Turret alloc] initWithX:8 andY:0 andFace:2];
-                self.t1=[[Turret alloc] initWithX:0 andY:8 andFace:2];
+                self.t1=[[Turret alloc] initWithX:2 andY:6 andFace:1];
+                self.t2=[[Turret alloc] initWithX:3 andY:1 andFace:3];
+                self.t3=[[Turret alloc] initWithX:6 andY:4 andFace:4];
+                self.t4=[[Turret alloc] initWithX:7 andY:0 andFace:2];
+                self.t5=[[Turret alloc] initWithX:0 andY:6 andFace:2];
         }
         //Set Turret Maxes
-        
+        for(NSInteger i=self.t1.getX-1;i>=0&&[[[self.rows objectAtIndex:self.t1.getY] objectAtIndex: i] isEqual:@"."]; i--){
+            self.t1.leftMax++;
+        }
+        for(NSInteger i=self.t1.getX+1;i<8&&[[[self.rows objectAtIndex:self.t1.getY] objectAtIndex: i] isEqual:@"."]; i++){
+            self.t1.rightMax++;
+        }
+        for(NSInteger i=self.t1.getY-1;i>=0&&[[[self.rows objectAtIndex:i] objectAtIndex:self.t1.getX] isEqual:@"."]; i--){
+            self.t1.upMax++;
+        }
+        for(NSInteger i=self.t1.getY+1;i<8&&[[[self.rows objectAtIndex:i ] objectAtIndex: self.t1.getY]  isEqual:@"."]; i++){
+            self.t1.downMax++;
+        }
     }
     return self;
 }
