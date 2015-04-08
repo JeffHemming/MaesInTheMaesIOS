@@ -1,16 +1,13 @@
 //
-//  Maes.m
+//  Level.m
 //  Maes in the Maze
 //
-//  Created by student on 4/3/15.
+//  Created by student on 4/8/15.
 //  Copyright (c) 2015 Hemming. All rights reserved.
 //
 
-#import "Maes.h"
+#import "Level.h"
 
-@implementation Maes
+@implementation Level
 
 @end
-
-
-

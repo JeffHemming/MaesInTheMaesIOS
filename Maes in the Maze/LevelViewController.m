@@ -12,7 +12,8 @@
 
 @interface LevelViewController ()
 @property (nonatomic, strong) Maes *maes;
-
+@property (nonatomic, strong) UILabel *maesLabel;
+@property (nonatomic, strong) NSMutableArray *turretList;
 @end
 
 @implementation LevelViewController
