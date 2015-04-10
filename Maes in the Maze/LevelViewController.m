@@ -43,19 +43,44 @@
         levelTitle.textAlignment=NSTextAlignmentCenter;
         [self.view addSubview:levelTitle];
         
+        UIImage *top = [UIImage imageNamed:@"top"];
         //Border around Maze
-        UILabel *topBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 680, 20)];
-        topBorder.backgroundColor=[UIColor yellowColor];
-        [self.view addSubview:topBorder];
-        UILabel *bottomBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 820, 680, 20)];
-        bottomBorder.backgroundColor=[UIColor yellowColor];
-        [self.view addSubview:bottomBorder];
-        UILabel *leftBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 20, 680)];
-        leftBorder.backgroundColor=[UIColor yellowColor];
-        [self.view addSubview:leftBorder];
-        UILabel *rightBorder=[[UILabel alloc] initWithFrame:CGRectMake(700, 160, 20, 680)];
-        rightBorder.backgroundColor=[UIColor yellowColor];
-        [self.view addSubview:rightBorder];
+        for(NSInteger i=0;i<10;i++){
+            UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(i*80-20, 100, 80, 80)];
+            wall.image=top;
+            wall.contentMode = UIViewContentModeScaleAspectFill;
+            [self.view addSubview:wall];
+        }
+        for(NSInteger i=0;i<10;i++){
+            UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(i*80-20, 820, 80, 80)];
+            wall.image=top;
+            wall.contentMode = UIViewContentModeScaleAspectFill;
+            [self.view addSubview:wall];
+        }
+        for(NSInteger i=0;i<10;i++){
+            UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(-20, i*80+100, 80, 80)];
+            wall.image=top;
+            wall.contentMode = UIViewContentModeScaleAspectFill;
+            [self.view addSubview:wall];
+        }
+        for(NSInteger i=0;i<10;i++){
+            UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(700, i*80+100, 80, 80)];
+            wall.image=top;
+            wall.contentMode = UIViewContentModeScaleAspectFill;
+            [self.view addSubview:wall];
+        }
+       // UILabel *topBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 680, 20)];
+        //topBorder.backgroundColor=[UIColor yellowColor];
+        //[self.view addSubview:topBorder];
+      //  UILabel *bottomBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 820, 680, 20)];
+       // bottomBorder.backgroundColor=[UIColor yellowColor];
+       // [self.view addSubview:bottomBorder];
+      //  UILabel *leftBorder=[[UILabel alloc] initWithFrame:CGRectMake(40, 160, 20, 680)];
+      //  leftBorder.backgroundColor=[UIColor yellowColor];
+      //  [self.view addSubview:leftBorder];
+      //  UILabel *rightBorder=[[UILabel alloc] initWithFrame:CGRectMake(700, 160, 20, 680)];
+      //  rightBorder.backgroundColor=[UIColor yellowColor];
+      //  [self.view addSubview:rightBorder];
         
         
         
@@ -64,7 +89,6 @@
             for(NSInteger j=0;j<8;j++){
                 if([[[self.lev.rows objectAtIndex:i] objectAtIndex: j] isEqual:@"w"]){
                     UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(j*80+60, i*80+180, 80, 80)];
-                    UIImage *top = [UIImage imageNamed:@"top"];
                     wall.image=top;
                     wall.contentMode = UIViewContentModeScaleAspectFill;
                     [self.view addSubview:wall];
