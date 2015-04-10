@@ -14,12 +14,12 @@
 @interface LevelViewController ()
 @property (nonatomic, strong) Maes *maes;
 @property (nonatomic, strong) Level *lev;
-@property (nonatomic, strong) UILabel *maesLabel;
-@property (nonatomic, strong) UILabel *tl1;
-@property (nonatomic, strong) UILabel *tl2;
-@property (nonatomic, strong) UILabel *tl3;
-@property (nonatomic, strong) UILabel *tl4;
-@property (nonatomic, strong) UILabel *tl5;
+@property (nonatomic, strong) UIImageView *maesLabel;
+@property (nonatomic, strong) UIImageView *tl1;
+@property (nonatomic, strong) UIImageView *tl2;
+@property (nonatomic, strong) UIImageView *tl3;
+@property (nonatomic, strong) UIImageView *tl4;
+@property (nonatomic, strong) UIImageView *tl5;
 @property (nonatomic, strong) NSMutableArray *turretList;
 @end
 
@@ -34,6 +34,7 @@
         self.maes = [[Maes alloc] init];
         UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 840, 200, 160)];
         levelTitle.text=self.lev.desc;
+        
 
         //Level Title and Description
         levelTitle.textColor=[UIColor whiteColor];
@@ -62,42 +63,54 @@
         for( NSInteger i=0;i<8;i++){
             for(NSInteger j=0;j<8;j++){
                 if([[[self.lev.rows objectAtIndex:i] objectAtIndex: j] isEqual:@"w"]){
-                    UILabel *wall=[[UILabel alloc] initWithFrame:CGRectMake(j*80+60, i*80+180, 80, 80)];
-                    wall.backgroundColor=[UIColor yellowColor];
+                    UIImageView *wall=[[UIImageView alloc] initWithFrame:CGRectMake(j*80+60, i*80+180, 80, 80)];
+                    UIImage *top = [UIImage imageNamed:@"top"];
+                    wall.image=top;
+                    wall.contentMode = UIViewContentModeScaleAspectFill;
                     [self.view addSubview:wall];
                 }
                 else if(i==0||[[[self.lev.rows objectAtIndex:i-1] objectAtIndex: j] isEqual:@"w"]){
-                    UILabel *halfwall=[[UILabel alloc] initWithFrame:CGRectMake(j*80+60, i*80+180, 80, 80)];
-                    halfwall.backgroundColor=[UIColor cyanColor];
+                    UIImageView *halfwall=[[UIImageView alloc] initWithFrame:CGRectMake(j*80+60, i*80+180, 80, 80)];
+                    UIImage *hwall =[UIImage imageNamed:@"wall"];
+                    halfwall.image=hwall;
+                    halfwall.contentMode= UIViewContentModeScaleAspectFill;
                     [self.view addSubview:halfwall];
                 }
             }
         }
         
         //Place turrets
-        self.tl1=[[UILabel alloc] initWithFrame:CGRectMake(self.lev.t1.x*80+60, self.lev.t1.y*80+180, 80, 80)];
-        self.tl1.backgroundColor=[UIColor redColor];
+        self.tl1=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t1.x*80+60, self.lev.t1.y*80+180, 80, 80)];
+        UIImage *turretImage=[UIImage imageNamed:@"turret"];
+        self.tl1.image=turretImage;
+        self.tl1.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.tl1];
         
-        self.tl2=[[UILabel alloc] initWithFrame:CGRectMake(self.lev.t2.x*80+60, self.lev.t2.y*80+180, 80, 80)];
-        self.tl2.backgroundColor=[UIColor redColor];
+        self.tl2=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t2.x*80+60, self.lev.t2.y*80+180, 80, 80)];
+        self.tl2.image=turretImage;
+        self.tl2.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.tl2];
         
-        self.tl3=[[UILabel alloc] initWithFrame:CGRectMake(self.lev.t3.x*80+60, self.lev.t3.y*80+180, 80, 80)];
-        self.tl3.backgroundColor=[UIColor redColor];
+        self.tl3=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t3.x*80+60, self.lev.t3.y*80+180, 80, 80)];
+        self.tl3.image=turretImage;
+        self.tl3.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.tl3];
         
-        self.tl4=[[UILabel alloc] initWithFrame:CGRectMake(self.lev.t4.x*80+60, self.lev.t4.y*80+180, 80, 80)];
-        self.tl4.backgroundColor=[UIColor redColor];
+        self.tl4=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t4.x*80+60, self.lev.t4.y*80+180, 80, 80)];
+        self.tl4.image=turretImage;
+        self.tl4.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.tl4];
         
-        self.tl5=[[UILabel alloc] initWithFrame:CGRectMake(self.lev.t5.x*80+60, self.lev.t5.y*80+180, 80, 80)];
-        self.tl5.backgroundColor=[UIColor redColor];
+        self.tl5=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t5.x*80+60, self.lev.t5.y*80+180, 80, 80)];
+        self.tl5.image=turretImage;
+        self.tl5.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.tl5];
         
         //Maes label
-        self.maesLabel=[[UILabel alloc] initWithFrame:CGRectMake(60, 180, 80, 80)];
-        self.maesLabel.backgroundColor=[UIColor greenColor];
+        self.maesLabel=[[UIImageView alloc] initWithFrame:CGRectMake(60, 180, 80, 80)];
+        UIImage *maesImage = [UIImage imageNamed:@"maes"];
+        self.maesLabel.image=maesImage;
+        self.maesLabel.contentMode = UIViewContentModeScaleAspectFill;
         [self.view addSubview:self.maesLabel];
         
         
