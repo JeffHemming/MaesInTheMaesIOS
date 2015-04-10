@@ -21,9 +21,9 @@
 -(NSInteger)getY{
     return self.y;
 }
--(NSInteger)getFace{
-    return self.face;
-}
+//-(NSInteger)getFace{
+//    return self.face;
+//}
 -(id)initWithX:(NSInteger)ix andY:(NSInteger)iy andFace:(NSInteger)iface{
     self=[super init];
     if(self){
