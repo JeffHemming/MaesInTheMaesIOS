@@ -21,7 +21,8 @@
 @property (nonatomic, strong) UIImageView *tl4;
 @property (nonatomic, strong) UIImageView *tl5;
 @property (nonatomic, strong) NSMutableArray *turretList;
-@property (nonatomic, strong) UIImageView *l1;
+@property (nonatomic, strong) UIImage *hLaserImage;
+@property (nonatomic, strong) UIImage *vLaserImage;
 @property (nonatomic, strong) UIImageView *l2;
 @property (nonatomic, strong) UIImageView *l3;
 @property (nonatomic, strong) UIImageView *l4;
@@ -135,9 +136,8 @@
         [self.turretList insertObject:self.lev.t5 atIndex:4];
         
         //prep lasers
-        UIImage *laser=[UIImage imageNamed:@"laser"];
-        self.l1=[[UIImageView alloc]init];
-        self.l1.image=laser;
+        self.hLaserImage=[UIImage imageNamed:@"laser"];
+        self.vLaserImage=[UIImage imageNamed:@"vlaser"];
         
         
         //Gestures
@@ -224,6 +224,7 @@
                 self.maesLabel.frame = newFrame;
             }];
             [self turnTurret];
+            
         }
     }
 }
@@ -264,6 +265,21 @@
     [UIView animateWithDuration:1.0 animations:^{
         self.tl5.transform = CGAffineTransformMakeRotation(angle5);
     }];
+    [self fireWithTurret:self.lev.t1];
+    [self fireWithTurret:self.lev.t2];
+    [self fireWithTurret:self.lev.t3];
+    [self fireWithTurret:self.lev.t4];
+    [self fireWithTurret:self.lev.t5];
+}
+
+-(void)fireWithTurret:(Turret*)turr{
+    if(turr.face==1){
+        UIImageView *laser= [[UIImageView alloc] initWithFrame:CGRectMake(turr.x*80+60, (turr.y-turr.upMax)*80+180, 80, 80*turr.upMax) ];
+        if(turr.face==1||turr.face==3)laser.image=self.vLaserImage;
+        else laser.image=self.hLaserImage;
+        laser.contentMode=UIViewContentModeScaleToFill;
+        [self.view addSubview:laser];
+    }
 }
 
 
