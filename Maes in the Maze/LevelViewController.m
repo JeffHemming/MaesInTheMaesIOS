@@ -166,7 +166,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-// this is called right before the view will be displayed
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -176,7 +175,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
 }
 
@@ -203,6 +201,7 @@
             [UIView animateWithDuration:1.0 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
+            [self turnTurret];
         }
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionRight){
@@ -213,6 +212,7 @@
             [UIView animateWithDuration:1.0 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
+            [self turnTurret];
         }
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionLeft){
@@ -223,31 +223,48 @@
             [UIView animateWithDuration:1.0 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
+            [self turnTurret];
         }
     }
 }
 
 -(void)turnTurret{
-    // use "HUGE_VALF" for infinite rotation
-    // [self tl1:self.movingView duration:5 rotations:1 repeatCount:0];
     
     self.tl1.layer.anchorPoint = CGPointMake(0.5,0.5);
     CGFloat angle = self.lev.t1.face * 90 * (M_PI/180);
-    self.lev.t1.turn;
-    self.tl1.transform = CGAffineTransformMakeRotation(angle);
+    [self.lev.t1 turn];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.tl1.transform = CGAffineTransformMakeRotation(angle);
+    }];
+    
+    self.tl2.layer.anchorPoint = CGPointMake(0.5,0.5);
+    CGFloat angle2 = self.lev.t2.face * 90 * (M_PI/180);
+    [self.lev.t2 turn];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.tl2.transform = CGAffineTransformMakeRotation(angle2);
+    }];
+    
+    self.tl3.layer.anchorPoint = CGPointMake(0.5,0.5);
+    CGFloat angle3 = self.lev.t3.face * 90 * (M_PI/180);
+    [self.lev.t3 turn];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.tl3.transform = CGAffineTransformMakeRotation(angle3);
+    }];
+    
+    self.tl4.layer.anchorPoint = CGPointMake(0.5,0.5);
+    CGFloat angle4 = self.lev.t4.face * 90 * (M_PI/180);
+    [self.lev.t4 turn];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.tl4.transform = CGAffineTransformMakeRotation(angle4);
+    }];
+    
+    self.tl5.layer.anchorPoint = CGPointMake(0.5,0.5);
+    CGFloat angle5 = self.lev.t5.face * 90 * (M_PI/180);
+    [self.lev.t5 turn];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.tl5.transform = CGAffineTransformMakeRotation(angle5);
+    }];
 }
 
-/* rotate a view:
--(void)rotateOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeatCount:(float)repeat;
-{
-    CABasicAnimation* rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.x"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: (M_PI * 2.0) * rotations * duration ];
-    rotationAnimation.duration = duration;
-    rotationAnimation.cumulative = YES;
-    rotationAnimation.repeatCount = repeat;
-    
-    [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-}*/
 
 @end
