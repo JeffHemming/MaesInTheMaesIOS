@@ -23,10 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *turretList;
 @property (nonatomic, strong) UIImage *hLaserImage;
 @property (nonatomic, strong) UIImage *vLaserImage;
-@property (nonatomic, strong) UIImageView *l2;
-@property (nonatomic, strong) UIImageView *l3;
-@property (nonatomic, strong) UIImageView *l4;
-@property (nonatomic, strong) UIImageView *l5;
+@property (nonatomic, strong) UILabel *dead;
 @end
 
 @implementation LevelViewController
@@ -46,6 +43,7 @@
         self.maes = [[Maes alloc] init];
         UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 840, 200, 160)];
         levelTitle.text=self.lev.desc;
+        
         
 
         //Level Title and Description
@@ -107,27 +105,59 @@
         UIImage *turretImage=[UIImage imageNamed:@"turret2"];
         self.tl1.image=turretImage;
         //self.tl1.contentMode=UIViewContentModeScaleAspectFill;
+        self.tl1.layer.anchorPoint = CGPointMake(0.5,0.5);
+        CGFloat angle = (self.lev.t1.face * 90 - 90) * (M_PI/180);
+        [UIView animateWithDuration:0.0 animations:^{
+            self.tl1.transform = CGAffineTransformMakeRotation(angle);
+        }];
         [self.view addSubview:self.tl1];
         
         self.tl2=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t2.x*80+60, self.lev.t2.y*80+180, 80, 80)];
         self.tl2.image=turretImage;
         //self.tl2.contentMode=UIViewContentModeScaleAspectFill;
+        self.tl2.layer.anchorPoint = CGPointMake(0.5,0.5);
+        CGFloat angle2 = (self.lev.t2.face * 90 - 90) * (M_PI/180);
+        [UIView animateWithDuration:0.0 animations:^{
+            self.tl2.transform = CGAffineTransformMakeRotation(angle2);
+        }];
         [self.view addSubview:self.tl2];
         
         self.tl3=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t3.x*80+60, self.lev.t3.y*80+180, 80, 80)];
         self.tl3.image=turretImage;
        // self.tl3.contentMode=UIViewContentModeScaleAspectFill;
+        self.tl3.layer.anchorPoint = CGPointMake(0.5,0.5);
+        angle = (self.lev.t3.face * 90 - 90) * (M_PI/180);
+        [UIView animateWithDuration:0.0 animations:^{
+            self.tl3.transform = CGAffineTransformMakeRotation(angle);
+        }];
         [self.view addSubview:self.tl3];
         
         self.tl4=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t4.x*80+60, self.lev.t4.y*80+180, 80, 80)];
         self.tl4.image=turretImage;
-      //  self.tl4.contentMode=UIViewContentModeScaleAspectFill;
+        //  self.tl4.contentMode=UIViewContentModeScaleAspectFill;
+        self.tl4.layer.anchorPoint = CGPointMake(0.5,0.5);
+        angle = (self.lev.t4.face * 90 - 90) * (M_PI/180);
+        [UIView animateWithDuration:0.0 animations:^{
+            self.tl4.transform = CGAffineTransformMakeRotation(angle);
+        }];
         [self.view addSubview:self.tl4];
         
         self.tl5=[[UIImageView alloc] initWithFrame:CGRectMake(self.lev.t5.x*80+60, self.lev.t5.y*80+180, 80, 80)];
         self.tl5.image=turretImage;
-       // self.tl5.contentMode=UIViewContentModeScaleAspectFill;
+        // self.tl5.contentMode=UIViewContentModeScaleAspectFill;
+        self.tl5.layer.anchorPoint = CGPointMake(0.5,0.5);
+        angle = (self.lev.t5.face * 90 - 90) * (M_PI/180);
+        [UIView animateWithDuration:0.0 animations:^{
+            self.tl5.transform = CGAffineTransformMakeRotation(angle);
+        }];
         [self.view addSubview:self.tl5];
+        
+        //Goal label
+        UIImage *goalImage= [UIImage imageNamed:@"goal"];
+        UIImageView *goal=[[UIImageView alloc] initWithFrame:CGRectMake(620, 740, 80, 80)];
+        goal.image=goalImage;
+        goal.contentMode=UIViewContentModeScaleAspectFill;
+        [self.view addSubview:goal];
         
         //Maes label
         self.maesLabel=[[UIImageView alloc] initWithFrame:CGRectMake(60, 180, 80, 80)];
@@ -334,32 +364,53 @@
 }
 
 -(void)checkHit:(Turret*)turr{
-    NSLog(@"Checking: X,Y,Face: %li, %li, %li,  Max UDLR: %li, %li, %li, %li",(long)turr.x, (long)turr.y, (long)turr.face, (long)turr.upMax, (long)turr.downMax, (long)turr.leftMax, (long)turr.rightMax);
-    NSLog(@"Maes x,y: %li, %li", (long)self.maes.x, (long)self.maes.y);
+    //NSLog(@"Checking: X,Y,Face: %li, %li, %li,  Max UDLR: %li, %li, %li, %li",(long)turr.x, (long)turr.y, (long)turr.face, (long)turr.upMax, (long)turr.downMax, (long)turr.leftMax, (long)turr.rightMax);
+   // NSLog(@"Maes x,y: %li, %li", (long)self.maes.x, (long)self.maes.y);
     if(turr.face==1){
         if(self.maes.x==turr.x&&self.maes.y<turr.y&&self.maes.y>=turr.y-turr.upMax){
-            //dead
-            NSLog(@"DEAD");
+            [self die];
         }
     }
     else if(turr.face==3){
         if(self.maes.x==turr.x&&self.maes.y>turr.y&&self.maes.y<=turr.y+turr.downMax){
-            //dead
-            NSLog(@"DEAD");
+            [self die];
         }
     }
     else if(turr.face==4){
-        if(self.maes.y==turr.y&&self.maes.x<turr.x&&self.maes.x>=turr.x+turr.leftMax){
-            //dead
-            NSLog(@"DEAD");
+        if(self.maes.y==turr.y&&self.maes.x<turr.x&&self.maes.x>=turr.x-turr.leftMax){
+            [self die];
         }
     }
     else if(turr.face==2){
         if(self.maes.y==turr.y&&self.maes.x>turr.x&&self.maes.x<=turr.x+turr.rightMax){
-            //dead
-            NSLog(@"DEAD");
+            [self die];
         }
     }
+}
+
+-(void)die{
+    self.dead= [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 800, 200)];
+    self.dead.text=@"DEAD";
+    self.dead.textAlignment=NSTextAlignmentCenter;
+    [self.dead setFont:[UIFont fontWithName:@"Georgia" size:120]];
+    self.dead.textColor=[UIColor redColor];
+    [self.view addSubview:self.dead];
+    [self startTimerForDeath];
+    [UIView animateWithDuration:2.0 animations:^{
+        self.dead.alpha = 0;
+    }];
+    
+}
+
+-(void)startTimerForDeath{
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(eraseDeadAndRestart) userInfo:nil repeats:NO];
+}
+
+-(void)eraseDeadAndRestart{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    LevelViewController *levelView = [[LevelViewController alloc] init];
+    [self.navigationController pushViewController:levelView animated:YES];
 }
 
 @end

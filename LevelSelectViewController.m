@@ -368,7 +368,7 @@
 }
 -(void)startLevel
 {
-    //code for pushing new level;
+    [self.navigationController popViewControllerAnimated:YES];
     LevelViewController *levelView = [[LevelViewController alloc] init];
     [self.navigationController pushViewController:levelView animated:YES];
 }

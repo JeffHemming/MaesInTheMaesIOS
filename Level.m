@@ -83,10 +83,9 @@
     for(NSInteger i=t.getY-1;i>=0&&[[[self.rows objectAtIndex:i] objectAtIndex:t.getX] isEqual:@"."]; i--){
         t.upMax++;
     }
-    for(NSInteger i=t.getY+1;i<8&&[[[self.rows objectAtIndex:i ] objectAtIndex:t.getY]  isEqual:@"."]; i++){
+    for(NSInteger i=t.getY+1;i<8&&[[[self.rows objectAtIndex:i ] objectAtIndex:t.getX]  isEqual:@"."]; i++){
         t.downMax++;
     }
-    NSLog(@"UDLR: %li, %li, %li, %li",(long)t.upMax, (long)t.downMax, (long)t.leftMax, (long)t.rightMax);
 }
 @end
 

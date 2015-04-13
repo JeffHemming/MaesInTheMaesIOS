@@ -10,6 +10,7 @@
 #import "Model.h"
 #import "LevelSelectViewController.h"
 #import "LevelViewController.h"
+#import "InstructionsViewController.h"
 
 @interface ViewController ()
 
@@ -130,5 +131,7 @@
 -(void)pushInstructions
 {
     //code to push the Instructions view
+    InstructionsViewController *instructionsView = [[InstructionsViewController alloc] init];
+    [self.navigationController pushViewController:instructionsView animated:YES];
 }
 @end

@@ -12,6 +12,7 @@
 		3F39302D1ACEF69800A85888 /* Maes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39302C1ACEF69800A85888 /* Maes.m */; };
 		3F3930301ACEFA3E00A85888 /* LevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F39302F1ACEFA3E00A85888 /* LevelViewController.m */; };
 		3F5D96031ACC6A5B0049B840 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D96021ACC6A5B0049B840 /* LevelSelectViewController.m */; };
+		3F847C4C1ADC595400C59FA5 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F847C4B1ADC595400C59FA5 /* InstructionsViewController.m */; };
 		3F985DFC1AC9BF5B007F671A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F985DFB1AC9BF5B007F671A /* main.m */; };
 		3F985DFF1AC9BF5B007F671A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F985DFE1AC9BF5B007F671A /* AppDelegate.m */; };
 		3F985E021AC9BF5B007F671A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F985E011AC9BF5B007F671A /* ViewController.m */; };
@@ -42,6 +43,8 @@
 		3F39302F1ACEFA3E00A85888 /* LevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelViewController.m; sourceTree = "<group>"; };
 		3F5D96011ACC6A5B0049B840 /* LevelSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelectViewController.h; path = ../LevelSelectViewController.h; sourceTree = "<group>"; };
 		3F5D96021ACC6A5B0049B840 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelectViewController.m; path = ../LevelSelectViewController.m; sourceTree = "<group>"; };
+		3F847C4A1ADC595400C59FA5 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
+		3F847C4B1ADC595400C59FA5 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		3F985DF61AC9BF5A007F671A /* Maes in the Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maes in the Maze.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F985DFA1AC9BF5B007F671A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F985DFB1AC9BF5B007F671A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 			children = (
 				3F3875061AD59F0A00EC208A /* Level.h */,
 				3F3875071AD59F0A00EC208A /* Level.m */,
+				3F847C4A1ADC595400C59FA5 /* InstructionsViewController.h */,
+				3F847C4B1ADC595400C59FA5 /* InstructionsViewController.m */,
 				3F3875031AD59CC800EC208A /* Turret.h */,
 				3F3875041AD59CC800EC208A /* Turret.m */,
 				3F5D96011ACC6A5B0049B840 /* LevelSelectViewController.h */,
@@ -248,6 +253,7 @@
 				3F985E021AC9BF5B007F671A /* ViewController.m in Sources */,
 				3F3875051AD59CC800EC208A /* Turret.m in Sources */,
 				3F3930301ACEFA3E00A85888 /* LevelViewController.m in Sources */,
+				3F847C4C1ADC595400C59FA5 /* InstructionsViewController.m in Sources */,
 				3F3875081AD59F0A00EC208A /* Level.m in Sources */,
 				3F985DFF1AC9BF5B007F671A /* AppDelegate.m in Sources */,
 				3F985DFC1AC9BF5B007F671A /* main.m in Sources */,
