@@ -22,13 +22,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UILabel *mMTitle = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 500, 100)];
+    UILabel *mMTitle = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 500, 300)];
     mMTitle.text=@"Maes in the Maze";
     [mMTitle setFont:[UIFont fontWithName:@"Georgia" size:64]];
     mMTitle.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:mMTitle];
     
-    UIButton *newGame = [[UIButton alloc] initWithFrame:CGRectMake(80,100,448,100)];
+    UIButton *newGame = [[UIButton alloc] initWithFrame:CGRectMake(80,100,448,200)];
     [newGame setTitle:@"New Game" forState:UIControlStateNormal];
     [newGame setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [newGame setBackgroundColor:[UIColor grayColor]];
@@ -36,7 +36,7 @@
     newGame.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:newGame];
     
-    UIButton *selectLevel = [[UIButton alloc] initWithFrame:CGRectMake(180,100,448,100)];
+    UIButton *selectLevel = [[UIButton alloc] initWithFrame:CGRectMake(180,100,448,200)];
     [selectLevel setTitle:@"Select Level" forState:UIControlStateNormal];
     [selectLevel setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [selectLevel setBackgroundColor:[UIColor grayColor]];
@@ -44,7 +44,7 @@
     selectLevel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:selectLevel];
     
-    UIButton *instructions = [[UIButton alloc] initWithFrame:CGRectMake(280,100,448,100)];
+    UIButton *instructions = [[UIButton alloc] initWithFrame:CGRectMake(280,100,448,200)];
     [instructions setTitle:@"Instructions" forState:UIControlStateNormal];
     [instructions setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [instructions setBackgroundColor:[UIColor grayColor]];
@@ -60,7 +60,7 @@
                                                                         views:@{@"NG" : newGame}]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-                               @"V:|-400-[MMT]-300-[NG]-20-[SL]-20-[I]"
+                               @"V:|-300-[MMT]-300-[NG]-50-[SL]-50-[I]"
                                                                       options:kNilOptions
                                                                       metrics:nil
                                                                         views:@{@"MMT" : mMTitle,

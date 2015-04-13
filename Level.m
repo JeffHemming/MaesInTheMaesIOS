@@ -58,22 +58,35 @@
                 self.t3=[[Turret alloc] initWithX:6 andY:4 andFace:4];
                 self.t4=[[Turret alloc] initWithX:7 andY:0 andFace:2];
                 self.t5=[[Turret alloc] initWithX:0 andY:7 andFace:2];
+                break;
+                
+                
         }
         //Set Turret Maxes
-        for(NSInteger i=self.t1.getX-1;i>=0&&[[[self.rows objectAtIndex:self.t1.getY] objectAtIndex: i] isEqual:@"."]; i--){
-            self.t1.leftMax++;
-        }
-        for(NSInteger i=self.t1.getX+1;i<8&&[[[self.rows objectAtIndex:self.t1.getY] objectAtIndex: i] isEqual:@"."]; i++){
-            self.t1.rightMax++;
-        }
-        for(NSInteger i=self.t1.getY-1;i>=0&&[[[self.rows objectAtIndex:i] objectAtIndex:self.t1.getX] isEqual:@"."]; i--){
-            self.t1.upMax++;
-        }
-        for(NSInteger i=self.t1.getY+1;i<8&&[[[self.rows objectAtIndex:i ] objectAtIndex: self.t1.getY]  isEqual:@"."]; i++){
-            self.t1.downMax++;
-        }
+        [self setTurretMaxes:self.t1];
+        [self setTurretMaxes:self.t2];
+        [self setTurretMaxes:self.t3];
+        [self setTurretMaxes:self.t4];
+        [self setTurretMaxes:self.t5];
+        
     }
     return self;
+}
+
+-(void)setTurretMaxes:(Turret*)t{
+    for(NSInteger i=t.getX-1;i>=0&&[[[self.rows objectAtIndex:t.getY] objectAtIndex: i] isEqual:@"."]; i--){
+        t.leftMax++;
+    }
+    for(NSInteger i=t.getX+1;i<8&&[[[self.rows objectAtIndex:t.getY] objectAtIndex: i] isEqual:@"."]; i++){
+        t.rightMax++;
+    }
+    for(NSInteger i=t.getY-1;i>=0&&[[[self.rows objectAtIndex:i] objectAtIndex:t.getX] isEqual:@"."]; i--){
+        t.upMax++;
+    }
+    for(NSInteger i=t.getY+1;i<8&&[[[self.rows objectAtIndex:i ] objectAtIndex:t.getY]  isEqual:@"."]; i++){
+        t.downMax++;
+    }
+    NSLog(@"UDLR: %li, %li, %li, %li",(long)t.upMax, (long)t.downMax, (long)t.leftMax, (long)t.rightMax);
 }
 @end
 

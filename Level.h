@@ -12,13 +12,13 @@
 @interface Level : NSObject{}
 @property (nonatomic, strong) NSString *desc;
 //@property (nonatomic, strong) NSMutableArray *turretList;
-@property (nonatomic, strong) NSMutableArray *rows;
-@property (nonatomic, strong) NSMutableArray *columns;
 @property (nonatomic, strong) Turret *t1;
 @property (nonatomic, strong) Turret *t2;
 @property (nonatomic, strong) Turret *t3;
 @property (nonatomic, strong) Turret *t4;
 @property (nonatomic, strong) Turret *t5;
+@property (nonatomic, strong) NSMutableArray *rows;
+@property (nonatomic, strong) NSMutableArray *columns;
 
 -(id)initWithCurrent:(NSInteger)cL;
 @end
