@@ -69,7 +69,37 @@
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@"w",@"w",@"w",@"w",@"w",@".",nil] atIndex: 6];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@"w",@"w",@"w",@"w",@"w",@".",nil] atIndex: 7];
                 break;
+            case 4:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@"w",@".",@".",@".",@".",@".",@".",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@"t",@".",@".",@".",@".",@".",@".",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"t",@".",@".",@".",@".",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"t",@".",@".",@".",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@"t",@".",@".",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@"t",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@"w",@".",nil] atIndex: 7];
+                break;
+            case 5:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"w",@".",@".",@"t",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"w",@".",@"w",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"t",@".",@".",@".",@"w",@".",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@"w",@".",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@"w",@".",@".",@".",@"t",@"w",@".",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@"w",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"t",@".",@".",@"t",@".",@".",@".",@".",nil] atIndex: 7];
+                break;
             case 6:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@"w",@"w",@"w",@"w",@"w",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@"w",@"w",@"w",@"w",@"w",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"w",@"w",@"w",@"w",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@"w",@"w",@"w",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@".",@".",@".",@".",@"w",@"w",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"t",@".",@".",@".",@".",@".",@".",@"w",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@"t",@"t",@"t",@"t",@"w",@".",nil] atIndex: 7];
+                break;
+            case 7:
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@".",@".",@"t",@".",@"t",nil] atIndex: 0];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@"w",@".",@"w",@".",@".",@".",nil] atIndex: 1];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@"t",@".",@".",@"w",@".",nil] atIndex: 2];
@@ -78,6 +108,36 @@
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"w",@".",@".",@".",nil] atIndex: 5];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@".",@".",@".",@"w",@".",nil] atIndex: 6];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"t",@".",@".",@".",@".",@"t",@"w",@".",nil] atIndex: 7];
+                break;
+            case 8:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@"t",@".",@".",@".",@".",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@"w",@".",@".",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"w",@".",@".",@".",@".",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"t",@".",@".",@"w",@".",@".",@"w",@".",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@"t",@".",@".",@".",@".",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@"t",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@"w",@".",@".",@".",@"w",@".",@"w",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"t",@".",@".",@".",nil] atIndex: 7];
+                break;
+            case 9:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@"w",@"w",@".",@"w",@"w",@".",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"t",@".",@".",@".",@".",@".",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@"w",@".",@".",@".",@"w",@"w",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"t",@".",@".",@".",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@".",@"w",@"w",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"t",@"w",@".",@"w",@".",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 7];
+                break;
+            default:
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 0];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 1];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 4];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 7];
                 break;
         }
         //Set turret list
@@ -103,12 +163,54 @@
                 self.t4=[[Turret alloc] initWithX:3 andY:5 andFace:2];
                 self.t5=[[Turret alloc] initWithX:5 andY:5 andFace:2];
                 break;
+            case 4:
+                self.t1=[[Turret alloc] initWithX:1 andY:1 andFace:1];
+                self.t2=[[Turret alloc] initWithX:2 andY:2 andFace:3];
+                self.t3=[[Turret alloc] initWithX:4 andY:4 andFace:4];
+                self.t4=[[Turret alloc] initWithX:5 andY:5 andFace:2];
+                self.t5=[[Turret alloc] initWithX:6 andY:6 andFace:2];
+                break;
+            case 5:
+                self.t1=[[Turret alloc] initWithX:5 andY:5 andFace:1];
+                self.t2=[[Turret alloc] initWithX:2 andY:3 andFace:3];
+                self.t3=[[Turret alloc] initWithX:7 andY:0 andFace:4];
+                self.t4=[[Turret alloc] initWithX:0 andY:7 andFace:2];
+                self.t5=[[Turret alloc] initWithX:3 andY:7 andFace:2];
+                break;
             case 6:
+                self.t1=[[Turret alloc] initWithX:0 andY:5 andFace:1];
+                self.t2=[[Turret alloc] initWithX:2 andY:7 andFace:3];
+                self.t3=[[Turret alloc] initWithX:3 andY:7 andFace:4];
+                self.t4=[[Turret alloc] initWithX:4 andY:7 andFace:2];
+                self.t5=[[Turret alloc] initWithX:5 andY:7 andFace:2];
+                break;
+            case 7:
                 self.t1=[[Turret alloc] initWithX:5 andY:0 andFace:1];
                 self.t2=[[Turret alloc] initWithX:3 andY:2 andFace:3];
                 self.t3=[[Turret alloc] initWithX:5 andY:7 andFace:4];
                 self.t4=[[Turret alloc] initWithX:7 andY:0 andFace:1];
                 self.t5=[[Turret alloc] initWithX:0 andY:7 andFace:2];
+                break;
+            case 8:
+                self.t1=[[Turret alloc] initWithX:0 andY:3 andFace:1];
+                self.t2=[[Turret alloc] initWithX:3 andY:0 andFace:3];
+                self.t3=[[Turret alloc] initWithX:3 andY:4 andFace:4];
+                self.t4=[[Turret alloc] initWithX:4 andY:7 andFace:2];
+                self.t5=[[Turret alloc] initWithX:7 andY:5 andFace:2];
+                break;
+            case 9:
+                self.t1=[[Turret alloc] initWithX:1 andY:2 andFace:1];
+                self.t2=[[Turret alloc] initWithX:2 andY:6 andFace:3];
+                self.t3=[[Turret alloc] initWithX:4 andY:4 andFace:1];
+                self.t4=[[Turret alloc] initWithX:4 andY:4 andFace:2];
+                self.t5=[[Turret alloc] initWithX:4 andY:4 andFace:3];
+                break;
+            default:
+                self.t1=[[Turret alloc] initWithX:0 andY:0 andFace:1];
+                self.t2=[[Turret alloc] initWithX:0 andY:0 andFace:3];
+                self.t3=[[Turret alloc] initWithX:0 andY:0 andFace:4];
+                self.t4=[[Turret alloc] initWithX:0 andY:0 andFace:2];
+                self.t5=[[Turret alloc] initWithX:0 andY:0 andFace:2];
                 break;
                 
         }
