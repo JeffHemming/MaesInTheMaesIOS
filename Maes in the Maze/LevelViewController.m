@@ -7,6 +7,7 @@
 //
 
 #import "LevelViewController.h"
+#import <AVFoundation/AVFoundation.h>
 #import "Model.h"
 #import "Maes.h"
 #import "Level.h"
@@ -24,6 +25,11 @@
 @property (nonatomic, strong) UIImage *hLaserImage;
 @property (nonatomic, strong) UIImage *vLaserImage;
 @property (nonatomic, strong) UILabel *dead;
+@property (nonatomic, strong) AVAudioPlayer *laserSound;
+@property (nonatomic, strong) AVAudioPlayer *turnSound;
+@property (nonatomic, strong) AVAudioPlayer *deathSound;
+@property (nonatomic, strong) AVAudioPlayer *portalSound;
+@property (nonatomic, assign) BOOL canMove;
 @end
 
 @implementation LevelViewController
@@ -34,7 +40,7 @@
     {
         self.view.backgroundColor = [UIColor blackColor];
         self.lev = [[Level alloc] initWithCurrent:[Model sharedInstance].currentLevel];
-        
+        self.canMove=YES;
         [self.turretList addObject:self.lev.t1];
         [self.turretList addObject:self.lev.t2];
         [self.turretList addObject:self.lev.t3];
@@ -44,7 +50,22 @@
         UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 840, 200, 160)];
         levelTitle.text=self.lev.desc;
         
+        //Audio
+        NSURL *laserURL = [[NSBundle mainBundle] URLForResource:@"Laser" withExtension:@"wav"];
+        self.laserSound = [[AVAudioPlayer alloc] initWithContentsOfURL:laserURL error:nil];
+        [self.laserSound prepareToPlay];
         
+        NSURL *turnURL =[[NSBundle mainBundle] URLForResource:@"Turn" withExtension:@"wav"];
+        self.turnSound = [[AVAudioPlayer alloc] initWithContentsOfURL:turnURL error:nil];
+        [self.turnSound prepareToPlay];
+
+        NSURL *deathURL =[[NSBundle mainBundle] URLForResource:@"Mystery" withExtension:@"wav"];
+        self.deathSound = [[AVAudioPlayer alloc] initWithContentsOfURL:deathURL error:nil];
+        [self.deathSound prepareToPlay];
+        
+        NSURL *portalURL =[[NSBundle mainBundle] URLForResource:@"Egress" withExtension:@"wav"];
+        self.portalSound = [[AVAudioPlayer alloc] initWithContentsOfURL:portalURL error:nil];
+        [self.portalSound prepareToPlay];
 
         //Level Title and Description
         levelTitle.textColor=[UIColor whiteColor];
@@ -219,8 +240,11 @@
 -(void)swipe:(UIGestureRecognizer*)gesture
 {
     UISwipeGestureRecognizer *swipe = (UISwipeGestureRecognizer*)gesture;
+    if(self.canMove){
     if(swipe.direction == UISwipeGestureRecognizerDirectionDown){
         if(self.maes.y<7&&[[[self.lev.rows objectAtIndex:self.maes.y+1] objectAtIndex: self.maes.x] isEqual:@"."]){
+            self.canMove=NO;
+            [self moveTimer];
             self.maes.y++;
             CGRect newFrame = self.maesLabel.frame;
             newFrame.origin.y+=80;
@@ -232,6 +256,8 @@
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionUp){
         if(self.maes.y>0&&[[[self.lev.rows objectAtIndex:self.maes.y-1] objectAtIndex: self.maes.x] isEqual:@"."]){
+            self.canMove=NO;
+            [self moveTimer];
             self.maes.y--;
             CGRect newFrame = self.maesLabel.frame;
             newFrame.origin.y-=80;
@@ -243,6 +269,8 @@
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionRight){
         if(self.maes.x<7&&[[[self.lev.rows objectAtIndex:self.maes.y] objectAtIndex: self.maes.x+1] isEqual:@"."]){
+            self.canMove=NO;
+            [self moveTimer];
             self.maes.x++;
             CGRect newFrame = self.maesLabel.frame;
             newFrame.origin.x+=80;
@@ -254,6 +282,8 @@
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionLeft){
         if(self.maes.x>0&&[[[self.lev.rows objectAtIndex:self.maes.y] objectAtIndex: self.maes.x-1] isEqual:@"."]){
+            self.canMove=NO;
+            [self moveTimer];
             self.maes.x--;
             CGRect newFrame = self.maesLabel.frame;
             newFrame.origin.x-=80;
@@ -264,11 +294,48 @@
             
         }
     }
+        if(self.maes.x==7&&self.maes.y==7){
+            if([Model sharedInstance].maxLevel<9){
+            [self.portalSound play];
+            self.dead= [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 800, 200)];
+            self.dead.text=@"CLEAR!";
+            self.dead.textAlignment=NSTextAlignmentCenter;
+            [self.dead setFont:[UIFont fontWithName:@"Georgia" size:120]];
+            self.dead.textColor=[UIColor greenColor];
+            [self.view addSubview:self.dead];
+            [self startTimerForDeath];
+            [UIView animateWithDuration:2.0 animations:^{
+                self.dead.alpha = 0;
+            }];
+            if([Model sharedInstance].maxLevel<[Model sharedInstance].currentLevel+1){
+                [Model sharedInstance].maxLevel++;
+                [[NSUserDefaults standardUserDefaults] setInteger:[Model sharedInstance].maxLevel forKey:@"maxLevelReached"];
+            }
+            [Model sharedInstance].currentLevel++;
+            }
+            
+            else {  //WON GAME
+                [self.portalSound play];
+                self.dead= [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 800, 200)];
+                self.dead.text=@"CONGRATULATION!\nA WINNER IS YOU!";
+                self.dead.textAlignment=NSTextAlignmentCenter;
+                [self.dead setFont:[UIFont fontWithName:@"Georgia" size:60]];
+                self.dead.textColor=[UIColor greenColor];
+                [Model sharedInstance].currentLevel=1;
+                [self.view addSubview:self.dead];
+                [self startTimerForEnd];
+                [UIView animateWithDuration:5.0 animations:^{
+                    self.dead.alpha = 0;
+                }];
+            }
+        }
+    }
 }
 
 -(void)turnTurret{
     
     [self startTimer];
+    [self.turnSound play];
     self.tl1.layer.anchorPoint = CGPointMake(0.5,0.5);
     CGFloat angle = self.lev.t1.face * 90 * (M_PI/180);
     [self.lev.t1 turn];
@@ -311,7 +378,17 @@
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(fireAll:) userInfo:nil repeats:NO];
 }
 
+-(void)moveTimer{
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(turnOnCanMove) userInfo:nil repeats:NO];
+}
+
+-(void)turnOnCanMove{
+    self.canMove=YES;
+}
+
 -(void)fireAll:(NSTimer*)timer{
+    
+    [self.laserSound play];
     [self fireWithTurret:self.lev.t1];
     [self fireWithTurret:self.lev.t2];
     [self fireWithTurret:self.lev.t3];
@@ -364,8 +441,6 @@
 }
 
 -(void)checkHit:(Turret*)turr{
-    //NSLog(@"Checking: X,Y,Face: %li, %li, %li,  Max UDLR: %li, %li, %li, %li",(long)turr.x, (long)turr.y, (long)turr.face, (long)turr.upMax, (long)turr.downMax, (long)turr.leftMax, (long)turr.rightMax);
-   // NSLog(@"Maes x,y: %li, %li", (long)self.maes.x, (long)self.maes.y);
     if(turr.face==1){
         if(self.maes.x==turr.x&&self.maes.y<turr.y&&self.maes.y>=turr.y-turr.upMax){
             [self die];
@@ -395,6 +470,7 @@
     [self.dead setFont:[UIFont fontWithName:@"Georgia" size:120]];
     self.dead.textColor=[UIColor redColor];
     [self.view addSubview:self.dead];
+    [self.deathSound play];
     [self startTimerForDeath];
     [UIView animateWithDuration:2.0 animations:^{
         self.dead.alpha = 0;
@@ -404,6 +480,14 @@
 
 -(void)startTimerForDeath{
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(eraseDeadAndRestart) userInfo:nil repeats:NO];
+}
+
+-(void)startTimerForEnd{
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(backToMain) userInfo:nil repeats:NO];
+}
+
+-(void)backToMain{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)eraseDeadAndRestart{
