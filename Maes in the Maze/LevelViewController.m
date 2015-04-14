@@ -47,7 +47,7 @@
         [self.turretList addObject:self.lev.t4];
         [self.turretList addObject:self.lev.t5];
         self.maes = [[Maes alloc] init];
-        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(300, 840, 200, 160)];
+        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(100, 840, 560, 160)];
         levelTitle.text=self.lev.desc;
         
         //Audio
@@ -72,6 +72,7 @@
         levelTitle.userInteractionEnabled=NO;
         levelTitle.backgroundColor=[UIColor blackColor];
         levelTitle.textAlignment=NSTextAlignmentCenter;
+        [levelTitle setFont:[UIFont fontWithName:@"Georgia" size:24]];
         [self.view addSubview:levelTitle];
         
         //Border around Maze
@@ -180,6 +181,30 @@
         goal.contentMode=UIViewContentModeScaleAspectFill;
         [self.view addSubview:goal];
         
+        //Sibling
+        if([Model sharedInstance].currentLevel==3){
+            UIImage *siblingImage= [UIImage imageNamed:@"Finn"];
+            UIImageView *sibling=[[UIImageView alloc] initWithFrame:CGRectMake(620, 740, 80, 80)];
+            sibling.image=siblingImage;
+            sibling.contentMode=UIViewContentModeScaleAspectFill;
+            [self.view addSubview:sibling];
+        }
+        if([Model sharedInstance].currentLevel==6){
+            UIImage *siblingImage= [UIImage imageNamed:@"Nadia"];
+            UIImageView *sibling=[[UIImageView alloc] initWithFrame:CGRectMake(620, 740, 80, 80)];
+            sibling.image=siblingImage;
+            sibling.contentMode=UIViewContentModeScaleAspectFill;
+            [self.view addSubview:sibling];
+        }
+        if([Model sharedInstance].currentLevel==9){
+            UIImage *siblingImage= [UIImage imageNamed:@"Gwendolyn"];
+            UIImageView *sibling=[[UIImageView alloc] initWithFrame:CGRectMake(620, 740, 80, 80)];
+            sibling.image=siblingImage;
+            sibling.contentMode=UIViewContentModeScaleAspectFill;
+            [self.view addSubview:sibling];
+        }
+        
+        
         //Maes label
         self.maesLabel=[[UIImageView alloc] initWithFrame:CGRectMake(60, 180, 80, 80)];
         UIImage *maesImage = [UIImage imageNamed:@"maes"];
@@ -251,7 +276,7 @@
             [UIView animateWithDuration:0.5 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
-            [self turnTurret];
+            if(self.maes.x!=7||self.maes.y!=7)[self turnTurret];
         }
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionUp){
@@ -264,7 +289,7 @@
             [UIView animateWithDuration:0.5 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
-            [self turnTurret];
+            if(self.maes.x!=7||self.maes.y!=7)[self turnTurret];
         }
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionRight){
@@ -277,7 +302,7 @@
             [UIView animateWithDuration:0.5 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
-            [self turnTurret];
+            if(self.maes.x!=7||self.maes.y!=7)[self turnTurret];
         }
     }
     else if(swipe.direction == UISwipeGestureRecognizerDirectionLeft){
@@ -290,7 +315,7 @@
             [UIView animateWithDuration:0.5 animations:^{
                 self.maesLabel.frame = newFrame;
             }];
-            [self turnTurret];
+            if(self.maes.x!=7||self.maes.y!=7)[self turnTurret];
             
         }
     }
