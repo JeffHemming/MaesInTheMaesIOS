@@ -122,11 +122,11 @@
             case 9:
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 0];
                 [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"w",@"w",@"w",@".",@"w",@"w",@".",nil] atIndex: 1];
-                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@"t",@".",@".",@".",@".",@".",@".",nil] atIndex: 2];
-                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@"w",@".",@".",@".",@"w",@"w",nil] atIndex: 3];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 2];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@"w",@".",@".",@".",@"w",@"t",nil] atIndex: 3];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@"t",@".",@".",@".",nil] atIndex: 4];
-                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@".",@"w",@"w",nil] atIndex: 5];
-                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"t",@"w",@".",@"w",@".",@".",nil] atIndex: 6];
+                [self.rows insertObject: [NSArray arrayWithObjects: @"w",@".",@".",@".",@".",@".",@".",@"w",nil] atIndex: 5];
+                [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@"t",@"w",@".",@"w",@"w",@".",nil] atIndex: 6];
                 [self.rows insertObject: [NSArray arrayWithObjects: @".",@".",@".",@".",@".",@".",@".",@".",nil] atIndex: 7];
                 break;
             default:
@@ -171,7 +171,7 @@
                 self.t5=[[Turret alloc] initWithX:6 andY:6 andFace:2];
                 break;
             case 5:
-                self.t1=[[Turret alloc] initWithX:5 andY:5 andFace:1];
+                self.t1=[[Turret alloc] initWithX:5 andY:5 andFace:2];
                 self.t2=[[Turret alloc] initWithX:2 andY:3 andFace:3];
                 self.t3=[[Turret alloc] initWithX:7 andY:0 andFace:4];
                 self.t4=[[Turret alloc] initWithX:0 andY:7 andFace:2];
@@ -199,11 +199,11 @@
                 self.t5=[[Turret alloc] initWithX:7 andY:5 andFace:2];
                 break;
             case 9:
-                self.t1=[[Turret alloc] initWithX:1 andY:2 andFace:1];
+                self.t1=[[Turret alloc] initWithX:7 andY:3 andFace:3];
                 self.t2=[[Turret alloc] initWithX:2 andY:6 andFace:3];
-                self.t3=[[Turret alloc] initWithX:4 andY:4 andFace:1];
+                self.t3=[[Turret alloc] initWithX:2 andY:6 andFace:4];
                 self.t4=[[Turret alloc] initWithX:4 andY:4 andFace:2];
-                self.t5=[[Turret alloc] initWithX:4 andY:4 andFace:3];
+                self.t5=[[Turret alloc] initWithX:4 andY:4 andFace:1];
                 break;
             default:
                 self.t1=[[Turret alloc] initWithX:0 andY:0 andFace:1];

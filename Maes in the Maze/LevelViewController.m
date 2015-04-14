@@ -47,7 +47,7 @@
         [self.turretList addObject:self.lev.t4];
         [self.turretList addObject:self.lev.t5];
         self.maes = [[Maes alloc] init];
-        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(100, 840, 560, 160)];
+        UITextView *levelTitle = [[UITextView alloc] initWithFrame:CGRectMake(75, 840, 610, 160)];
         levelTitle.text=self.lev.desc;
         
         //Audio
@@ -342,12 +342,19 @@
             else {  //WON GAME
                 [self.portalSound play];
                 self.dead= [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 800, 200)];
-                self.dead.text=@"CONGRATULATION!\nA WINNER IS YOU!";
+                self.dead.text=@"CONGRATULATION!";
                 self.dead.textAlignment=NSTextAlignmentCenter;
                 [self.dead setFont:[UIFont fontWithName:@"Georgia" size:60]];
                 self.dead.textColor=[UIColor greenColor];
                 [Model sharedInstance].currentLevel=1;
                 [self.view addSubview:self.dead];
+                UILabel *sublabel= [[UILabel alloc] initWithFrame:CGRectMake(0, 500, 800, 200)];
+                sublabel.text=@"A WINNER IS YOU!";
+                sublabel.textAlignment=NSTextAlignmentCenter;
+                [sublabel setFont:[UIFont fontWithName:@"Georgia" size:60]];
+                sublabel.textColor=[UIColor greenColor];
+                [self.view addSubview:sublabel];
+
                 [self startTimerForEnd];
                 [UIView animateWithDuration:5.0 animations:^{
                     self.dead.alpha = 0;
