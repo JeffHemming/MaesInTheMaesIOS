@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     UILabel *instructionTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, 120, 800, 100)];
-    instructionTitle.text=@"INSTRUCTIONS";
+    instructionTitle.text=@"Instructions";
     instructionTitle.textAlignment=NSTextAlignmentCenter;
     [instructionTitle setFont:[UIFont fontWithName:@"Georgia" size:42]];
     [self.view addSubview:instructionTitle];
