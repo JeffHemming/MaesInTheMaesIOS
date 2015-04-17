@@ -320,7 +320,7 @@
         }
     }
         if(self.maes.x==7&&self.maes.y==7){
-            if([Model sharedInstance].maxLevel<9){
+            if([Model sharedInstance].currentLevel<9){
             [self.portalSound play];
             self.dead= [[UILabel alloc] initWithFrame:CGRectMake(0, 300, 800, 200)];
             self.dead.text=@"CLEAR!";
